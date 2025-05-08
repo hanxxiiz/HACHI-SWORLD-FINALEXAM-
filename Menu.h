@@ -1,0 +1,71 @@
+#pragma once
+#include "Level.h"
+
+typedef struct Menu {
+    Animations animations;
+    Font font;
+    Color color;
+    Music menu_music;
+    Music ending_music;
+    Sound button_sound;
+    Texture2D ending_background;
+    Texture2D menu_background1;
+    Texture2D menu_background2;
+    Texture2D logo;
+    Rectangle ending_;
+    Rectangle logo_src;
+    Rectangle logo_disp;
+    Rectangle background_src;
+    Rectangle background_disp;
+    Rectangle start_button;
+    Rectangle keybindings_button;
+    Rectangle keybindings_background;
+    Rectangle exit_button;
+    Rectangle return_button;
+    Rectangle continue_button;
+    Rectangle exit_to_menu_button;
+    Vector2 mouse_pos;
+    Vector2 ending_pos1;
+    Vector2 ending_pos2;
+    Vector2 start_game_pos;
+    Vector2 keybindings_pos;
+    Vector2 exit_pos;
+    Vector2 return_pos;
+    Vector2 pause_pos;
+    Vector2 pause_pos2;
+    Vector2 movement_pos;
+    Vector2 sprint_pos;
+    Vector2 jump_pos;
+    Vector2 origin;
+    int logoPositionX;
+    int logoPositionY;
+    int framesCounter;
+    int lettersCount;
+    int topSideRecWidth;
+    int leftSideRecHeight;
+    int bottomSideRecWidth;
+    int rightSideRecHeight;
+    int state;
+    float alpha;
+    bool keybindings;
+    bool start_game;
+    bool exit_game;
+    bool init;
+    bool pause_;
+    bool play_button_sound;
+    float menu_volume;
+    float ending_volume;
+    float button_volume;
+} Menu;
+
+// Function prototypes for Menu operations
+void Menu_Initialize(Menu * menu);
+void Menu_SetAudioVolume(Menu * menu);
+void Menu_InitAnimation(Menu * menu);
+void Menu_Draw(Menu * menu);
+void Menu_DrawKeybindings(Menu * menu);
+void Menu_CheckButton(Menu * menu);
+void Menu_Pause(Menu * menu);
+void Menu_PauseDraw(Menu * menu, Player * player, Levels * level_1, Levels * level_2);
+void Menu_Ending(Menu * menu, Levels * level_1, Levels * level_2);
+void Menu_ResetLvl(Menu * menu, Levels * level_1, Levels * level_2);
